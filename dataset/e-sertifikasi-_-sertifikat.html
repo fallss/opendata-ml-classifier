@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>e-Sertifikasi | Sertifikat</title>
+
+		<link rel="shortcut icon" type="image/x-icon" href="https://sertifikasi.postel.go.id/assets/image/favicon.ico">
+		
+		<meta name="description" content="overview &amp; stats">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- basic styles -->
+		<link href="e-Sertifikasi%20_%20Sertifikat_files/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="e-Sertifikasi%20_%20Sertifikat_files/font-awesome.css">
+		<!--<link rel="stylesheet" href="/assets/css/font.css" />-->
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="/assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+		<!--<link rel="stylesheet" href="/assets/css/select2.css" />
+		<link rel="stylesheet" href="/assets/css/jquery-ui-1.10.3.full.min.css" />
+		<link rel="stylesheet" href="/assets/css/chosen.css" />--?
+		
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="e-Sertifikasi%20_%20Sertifikat_files/css.css">
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="e-Sertifikasi%20_%20Sertifikat_files/ace.css">
+		<!--<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />-->
+		<!--<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />-->
+
+		
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<!--<script src="/assets/js/ace-extra.min.js"></script>-->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="/assets/js/html5shiv.js"></script>
+		<script src="/assets/js/respond.min.js"></script>
+		<![endif]-->
+		<script>
+			//document.oncontextmenu = document.body.oncontextmenu = function() {return false;}
+		
+			function date_time(id)
+			{
+					date = new Date;
+					year = date.getFullYear();
+					month = date.getMonth();
+					months = new Array('Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
+					d = date.getDate();
+					day = date.getDay();
+					days = new Array('Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu');
+					h = date.getHours();
+					if(h<10)
+					{
+							h = "0"+h;
+					}
+					m = date.getMinutes();
+					if(m<10)
+					{
+							m = "0"+m;
+					}
+					s = date.getSeconds();
+					if(s<10)
+					{
+							s = "0"+s;
+					}
+					result = ''+days[day]+', '+d+'-'+months[month]+'-'+year+' '+h+':'+m+':'+s;
+					document.getElementById(id).innerHTML = result;
+					setTimeout('date_time("'+id+'");','1000');
+					return true;
+			}
+			
+			/*$(document).ready(function(){
+				$('#ace-settings-navbar').trigger('click');
+			});
+			
+			$(document).ready(function(){
+				$('#ace-settings-sidebar').trigger('click');
+			});
+			
+			$(document).ready(function(){
+				$('#ace-settings-breadcrumbs').trigger('click');
+			});*/
+		</script>
+	<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+	<!--<body onload="startTime()" oncontextmenu="return false;">-->
+	<body onload="startTime()" class="navbar-fixed">
+		<div class="navbar navbar-default navbar-fixed-top" id="navbar">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left"> &nbsp;
+											<a href="" class="navbar-brand">
+							<small>
+								<i><img id="logo_home" src="e-Sertifikasi%20_%20Sertifikat_files/test.png" onmousedown="return false;" ondragstart="return false;" height="40px" width="40px"></i>
+								<b>DITJEN SDPPI</b> | e-Sertifikasi
+							</small>
+						</a>
+									</div>
+
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="dropdown-toggle grey">
+							<a class="dropdown-toggle" href="#">
+								<span class="badge badge-grey"><span id="date_time">Rabu, 27-September-2017 11:29:31</span>
+								<script type="text/javascript">window.onload = date_time('date_time');</script></span>
+							</a>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+				
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+					
+						<div class="sidebar-shortcuts" id="sidebar-shortcuts"></div>
+
+						<ul class="nav nav-list"> 
+							<!--MENU-->
+							<style>
+    /*<ul class="nav" id="main-menu">*/
+    nav {
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>
+
+
+
+	
+							
+						</ul><!-- /.nav-list -->
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+					</div>
+
+					<div class="page-content">
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+									
+																
+									<!--CONTENT-->
+									<div class="row">
+	<div class="col-xs-12">	
+		<div class="widget-box">
+			<div class="widget-header header-color-blue2">
+				<h5><i class="icon-certificate bigger-100"></i>Sertifikat Tidak Berlaku</h5>
+			</div>
+
+			<div class="widget-body">
+				<div class="widget-main">
+					
+					<form class="form-horizontal" autocomplete="off" name="fcari" method="GET" action="/sertifikat/index">
+						<div class="form-group">
+								<div class="col-sm-9 col-xs-12">
+									<span>
+										<select name="key" class="col-xs-12 col-sm-3 " id="form-field-select-1">
+											<option value="nomor" selected="selected">Nomor Sertifikat</option>
+											<option value="cust_name">Nama Customer</option>
+											<option value="eqp_name">Nama Perangkat</option>
+											<option value="models">Merk &amp; Model</option>
+											<option value="plg_id">PLG ID</option>
+										</select>
+									</span>
+
+									
+									<span>
+										<div class="col-xs-12 col-sm-6 no-padding-right">
+											<div class="input-group">
+												<input name="value" class="form-control search-query" placeholder="Masukkan Kata Kunci" type="text">
+												<input name="isberlaku" value="0" type="hidden">
+												<span class="input-group-btn">
+													<button type="submit" class="btn btn-primary btn-sm">
+														CARI
+														<i class="icon-search icon-on-right bigger-110"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+									</span>
+								</div>
+							</div>
+					</form>
+					
+					<div class="hr hr-2 dotted hr-double"></div>
+					
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="table-responsive">
+								<table id="" class="table table-striped table-bordered table-hover">
+									</table><table class="table table-striped table-bordered table-hover">
+                    <thead>
+<tr class="gv-header-row">
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=nomor&amp;gvso=ASC">NOMOR&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=plg_id&amp;gvso=ASC">PLG ID&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=cust_name&amp;gvso=ASC">CUSTOMER&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=eqp_name&amp;gvso=ASC">PERANGKAT&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=models&amp;gvso=ASC">MERK &amp; MODEL&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=brand&amp;gvso=ASC">BRAND&nbsp;<i class="icon-double-angle-down"></i></a></th>
+	 <th><a href="https://sertifikasi.postel.go.id/sertifikat/index?isberlaku=0&amp;gvsf=kdw&amp;gvso=ASC">EXPIRED&nbsp;<i class="icon-double-angle-down"></i></a></th>
+</tr></thead><tbody>
+<tr class="odd-row">
+	 <td class="odd-row" valign="top">17413/I/SDPPI/2014</td>
+	 <td class="odd-row" style="width:70px;  text-align: center;" valign="top">2111&nbsp;</td>
+	 <td class="odd-row" valign="top">EPSON INDONESIA, PT.</td>
+	 <td class="odd-row" valign="top">Wireless LAN</td>
+	 <td class="odd-row" valign="top">EPSON &amp; WLAN Module / SP88W8786-MD0-2C2T00</td>
+	 <td class="odd-row" valign="top"></td>
+	 <td class="odd-row" valign="top">2016.11.29</td>
+</tr>
+<tr class="even-row">
+	 <td class="even-row" valign="top">18743/I/SDPPI/2014</td>
+	 <td class="even-row" style="width:70px;  text-align: center;" valign="top">1770&nbsp;</td>
+	 <td class="even-row" valign="top">MIRUSA GRAHA, PT.</td>
+	 <td class="even-row" valign="top">Pemancar Radio Maritim</td>
+	 <td class="even-row" valign="top">ICOM &amp; MF/HF Marine Transceiver / IC-M802 (Freq.1,6-27,5 MHz / 150 Watt)</td>
+	 <td class="even-row" valign="top"></td>
+	 <td class="even-row" valign="top">2017.03.28</td>
+</tr>
+<tr class="odd-row">
+	 <td class="odd-row" valign="top">19549/I/SDPPI/2014</td>
+	 <td class="odd-row" style="width:70px;  text-align: center;" valign="top">1848&nbsp;</td>
+	 <td class="odd-row" valign="top">ASTRA GRAPHIA, Tbk., PT.</td>
+	 <td class="odd-row" valign="top">Mesin Multifungsi</td>
+	 <td class="odd-row" valign="top">Fuji Xerox &amp; ApeosPort-IV C4430</td>
+	 <td class="odd-row" valign="top"></td>
+	 <td class="odd-row" valign="top">2017.06.10</td>
+</tr>
+<tr class="even-row">
+	 <td class="even-row" valign="top">19550/I/SDPPI/2014</td>
+	 <td class="even-row" style="width:70px;  text-align: center;" valign="top">1848&nbsp;</td>
+	 <td class="even-row" valign="top">ASTRA GRAPHIA, Tbk., PT.</td>
+	 <td class="even-row" valign="top">Mesin Multifungsi</td>
+	 <td class="even-row" valign="top">Fuji Xerox &amp; DOCUCENTRE-IV C4430</td>
+	 <td class="even-row" valign="top"></td>
+	 <td class="even-row" valign="top">2017.06.10</td>
+</tr>
+<tr class="odd-row">
+	 <td class="odd-row" valign="top">19757/I/SDPPI/2014</td>
+	 <td class="odd-row" style="width:70px;  text-align: center;" valign="top">1770&nbsp;</td>
+	 <td class="odd-row" valign="top">MIRUSA GRAHA, PT.</td>
+	 <td class="odd-row" valign="top">Pemancar Radio Maritim</td>
+	 <td class="odd-row" valign="top">ICOM &amp; VHF Marine Transceiver / IC-M412 (Freq.156.025-163.275 MHz)</td>
+	 <td class="odd-row" valign="top"></td>
+	 <td class="odd-row" valign="top">2017.06.27</td>
+</tr>
+<tr class="even-row">
+	 <td class="even-row" valign="top">21098/I/SDPPI/2014</td>
+	 <td class="even-row" style="width:70px;  text-align: center;" valign="top">1604&nbsp;</td>
+	 <td class="even-row" valign="top">SEIKO EPSON CORPORATION</td>
+	 <td class="even-row" valign="top">PRINTER MULTIFUNGSI</td>
+	 <td class="even-row" valign="top">EPSON &amp; C451A/ WP-4521</td>
+	 <td class="even-row" valign="top"></td>
+	 <td class="even-row" valign="top">2017.10.04</td>
+</tr>
+<tr class="odd-row">
+	 <td class="odd-row" valign="top">21099/I/SDPPI/2014</td>
+	 <td class="odd-row" style="width:70px;  text-align: center;" valign="top">1604&nbsp;</td>
+	 <td class="odd-row" valign="top">SEIKO EPSON CORPORATION</td>
+	 <td class="odd-row" valign="top">PRINTER MULTIFUNGSI</td>
+	 <td class="odd-row" valign="top">EPSON &amp; C441A/ WF-7511</td>
+	 <td class="odd-row" valign="top"></td>
+	 <td class="odd-row" valign="top">2017.10.04</td>
+</tr>
+<tr class="even-row">
+	 <td class="even-row" valign="top">27617/R/SDPPI/2014</td>
+	 <td class="even-row" style="width:70px;  text-align: center;" valign="top">2296&nbsp;</td>
+	 <td class="even-row" valign="top">SURYAJAYA TEKNOTAMA, PT.</td>
+	 <td class="even-row" valign="top">Antenna Triple Band Remote Tilt Panel, Internal Bias-T</td>
+	 <td class="even-row" valign="top">ARGUS &amp; CVVPX310B1Q</td>
+	 <td class="even-row" valign="top"></td>
+	 <td class="even-row" valign="top">2016.01.10</td>
+</tr>
+<tr class="odd-row">
+	 <td class="odd-row" valign="top">36518/SDPPI/2014</td>
+	 <td class="odd-row" style="width:70px;  text-align: center;" valign="top">4162&nbsp;</td>
+	 <td class="odd-row" valign="top">Arga Mas Lestari, PT.</td>
+	 <td class="odd-row" valign="top">Tablet PC</td>
+	 <td class="odd-row" valign="top">ADVAN &amp; T1X Pro</td>
+	 <td class="odd-row" valign="top"></td>
+	 <td class="odd-row" valign="top">2017.09.26</td>
+</tr>
+<tr class="even-row">
+	 <td class="even-row" valign="top">36512/SDPPI/2014</td>
+	 <td class="even-row" style="width:70px;  text-align: center;" valign="top">4735&nbsp;</td>
+	 <td class="even-row" valign="top">PROTONINDO CITRA, PT.</td>
+	 <td class="even-row" valign="top">Bluetooth Speaker</td>
+	 <td class="even-row" valign="top">CRIMSON                             
+                                                                        
+                                           &amp; PA12-1E/GUGO11PLAYER</td>
+	 <td class="even-row" valign="top"></td>
+	 <td class="even-row" valign="top">2017.09.26</td>
+</tr></tbody></table><div class="gv-navi pull-right"><i class="fa fa-fast-backward"></i> First <i class="fa fa-backward"></i> Previous  ( 1 - 10 of 26906 ) <a href="https://sertifikasi.postel.go.id/sertifikat?isberlaku=0&amp;pagegrid=2"><i class="fa fa-foward"></i> Next</a> <a href="https://sertifikasi.postel.go.id/sertifikat?isberlaku=0&amp;pagegrid=2691">Last <i class="fa fa-fast-forward"></i></a> </div></div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+									
+								<!-- PAGE CONTENT ENDS -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer">
+				<div class="footer-inner">
+					<div class="footer-content">
+						<span class="bigger-120" style="color:#fff">
+							Direktorat Jenderal Sumber Daya dan Perangkat Pos dan Informatika
+							© 2016 - 2017
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		
+
+		<!--[if IE]-->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery_004.js"></script>
+		<!--[endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>-->
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+		</script>
+		<!--[endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		
+		<!-- core JS-->		
+		<!--<script src="/assets/js/jquery-ui-1.9.2.custom.min.js"></script>-->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery-ui-1_002.js"></script>
+		
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/bootstrap.js"></script>
+		<!--<script src="/assets/js/typeahead-bs2.min.js"></script>-->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery-ui-1.js"></script>
+
+		
+		<!--[if lte IE 8]>
+		  <script src="/assets/js/excanvas.min.js"></script>
+		<![endif]-->
+	
+		
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/chosen.js"></script>
+		<!-- page specific plugin scripts  wysiwyg -->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery_002.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/chosen.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery_003.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery_005.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/bootbox.js"></script>
+		<!--<script src="/assets/js/jquery.hotkeys.min.js"></script>-->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/bootstrap-wysiwyg.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/jquery.js"></script>
+		
+		<!-- page specific plugin scripts -->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/fuelux_002.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/fuelux.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/select2.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/bootstrap-datepicker.js"></script>
+		
+		<!--<script src="/assets/js/jquery.dataTables.min.js"></script>
+		<script src="/assets/js/jquery.dataTables.bootstrap.js"></script>-->
+		
+		<script type="text/javascript" src="e-Sertifikasi%20_%20Sertifikat_files/postel.js"></script>
+		
+		<!-- ace scripts -->
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/ace-elements.js"></script>
+		<script src="e-Sertifikasi%20_%20Sertifikat_files/ace.js"></script>
+
+		
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+		function formatRp(n, currency) {
+			return currency + " " + n.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1.");
+		}
+		
+		$(function(){
+			$('#submit_news').click(function () {
+				var isi_regulasi = $('#isi_news').html();
+				$('#content_news').val(isi_regulasi);
+				$("form:first").submit();
+				$('#content_news').append(isi_regulasi);
+			});
+		});
+		
+		jQuery(function($) {
+			$.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+				_title: function(title) {
+					var $title = this.options.title || '&nbsp;'
+					if( ("title_html" in this.options) && this.options.title_html == true )
+						title.html($title);
+					else title.text($title);
+				}
+			}));
+			
+			$('[data-rel=tooltip]').tooltip({container:'body'});
+			$('[data-rel=popover]').popover({container:'body'});
+			
+			$(".chosen-select").chosen(); 
+			$('#chosen-multiple-style').on('click', function(e){
+				var target = $(e.target).find('input[type=radio]');
+				var which = parseInt(target.val());
+				if(which == 2) $('#form-field-select-4').addClass('tag-input-style');
+				 else $('#form-field-select-4').removeClass('tag-input-style');
+			});
+			
+			$('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+				$(this).prev().focus();
+			});
+			
+			function showErrorAlert (reason, detail) {
+				var msg='';
+				if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+				else {
+					console.log("error uploading file", reason, detail);
+				}
+				$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
+				 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+			}
+			
+			$('#isi_news').css({'height':'400px'}).ace_wysiwyg({
+					toolbar:
+					[
+					'font',
+					null,
+					'fontSize',
+					null,
+					{name:'bold', className:'btn-info'},
+					null,
+					{name:'italic', className:'btn-info'},
+					null,
+					{name:'strikethrough', className:'btn-info'},
+					null,
+					{name:'underline', className:'btn-info'},
+					null,
+					{name:'insertunorderedlist', className:'btn-success'},
+					null,
+					{name:'insertorderedlist', className:'btn-success'},
+					null,
+					{name:'justifyleft', className:'btn-primary'},
+					null,
+					{name:'justifycenter', className:'btn-primary'},
+					null,
+					{name:'justifyright', className:'btn-primary'},
+					null,
+					{name:'justifyfull', className:'btn-inverse'},
+					null,
+					'foreColor',
+					],
+				'wysiwyg': {
+					fileUploadError: showErrorAlert
+				}
+			}).prev().addClass('wysiwyg-style2');
+
+			
+			if ( typeof jQuery.ui !== 'undefined' && /applewebkit/.test(navigator.userAgent.toLowerCase()) ) {
+		
+				var lastResizableImg = null;
+				function destroyResizable() {
+					if(lastResizableImg == null) return;
+					lastResizableImg.resizable( "destroy" );
+					lastResizableImg.removeData('resizable');
+					lastResizableImg = null;
+				}
+
+				var enableImageResize = function() {
+					$('.wysiwyg-editor')
+					.on('mousedown', function(e) {
+						var target = $(e.target);
+						if( e.target instanceof HTMLImageElement ) {
+							if( !target.data('resizable') ) {
+								target.resizable({
+									aspectRatio: e.target.width / e.target.height,
+								});
+								target.data('resizable', true);
+								
+								if( lastResizableImg != null ) {//disable previous resizable image
+									lastResizableImg.resizable( "destroy" );
+									lastResizableImg.removeData('resizable');
+								}
+								lastResizableImg = target;
+							}
+						}
+					})
+					.on('click', function(e) {
+						if( lastResizableImg != null && !(e.target instanceof HTMLImageElement) ) {
+							destroyResizable();
+						}
+					})
+					.on('keydown', function() {
+						destroyResizable();
+					});
+				}
+				
+				enableImageResize();
+			}
+			
+			$('#npwp_file, #siup_file, #akte_file, #tdp_file, #npik_file, #id_card, #file_poa').ace_file_input({
+				no_file:'Lampiran File ...',
+				btn_choose:'Choose',
+				btn_change:'Change',
+				droppable:false,
+				onchange:null
+				//thumbnail:true //| true | large
+				//whitelist:'pdf|doc|docs',
+				//blacklist:'txt|rar'
+				//onchange:''
+				//
+			});
+			
+			$('.input-mask-phone').mask('(999) 999-9999');
+			
+		});
+
+
+		</script>
+	
+</body></html>

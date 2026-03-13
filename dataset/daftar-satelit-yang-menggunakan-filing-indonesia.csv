@@ -1,0 +1,18 @@
+No;Nama Satelit;Manufaktur;Tanggal Luncur;Tempat Luncur;Slot Orbit;Transponder;Kegunaan
+1;Merah Putih;Maxar Technologies/Space System Loral (SSL);2018-08-07;Cape Canaveral Air Force Station, Orlando, Florida;108 BT;"24 Transponder C-Band
+12 Transponder Extended C-Band, menjangkau wilayah Asia Tenggara
+24 Transponder C-Band, menjangkau wilayah Asia Selatan";-
+2;INDOSTAR-2;Boeing Satellite System;2009-05-16;Moskow Rusia;108.2 BT;"22 (+5 spare) Transponder Ku-Band, menjangkau wilayah South Asia, Southeast Asia Northeast
+10 (+3 spare) S(X)-Band, menjangkau wilayah Indonesia";-
+3;TELKOM-3S;Thales Alenia Space;2017-02-15;Kourou, Guyana Perancis;118 BT;"24 Transponder C-Band, mencakup wilayah Indonesia dan Asia Tenggara
+8 Transponder Extended C-Band, mencakup wilayah Indonesia dan Malaysia
+10 Transponder Ku-Band, khusus mencakup wilayah Indonesia";-
+4;NUSANTARA SATU;Maxar Technologies Space System Loral (SSL);2019-02-21;Cape Canaveral, Florida, Amerika Serikat;146 BT;"26 Transponder C-Band
+12 Transponder Extended C-Band, mencakup wilayah Asia Tenggara
+8 Transponder Ku-Band, khusus mencakup wilayah Indonesia";-
+5;BRISAT;Maxar Technologies Space Systems Loral;2016-06-18;Cape Canaveral, Florida, Amerika Serikat;150.5 BT;"9 Transponder Ku-Band
+36 Transponder C-Band
+Dengan cakupan wilayah Indonesia, ASEAN, Northeast Asia, dan sebagian Asia Pasifik dan Australia bagian Barat";-
+6;LAPAN-A1;-;2007-01-10;Sriharikota, India;NGSO;-;Untuk pemantauan Bumi. Namun karena instrument kameranya telah mengalami penurunan kualitas penangkapan gambar, maka satelit ini hanya digunakan sebagai laboratorium uji kesehatan satelit.
+7;LAPAN-A2;-;2015-09-28;Sriharikota, India;NGSO;-;Satelit LAPAN-A2 membawa Automatic Identification System (AIS) untuk mengidentifikasi kapal-kapal di perairan Indonesia
+8;LAPAN-A3;-;2016-06-22;Sriharikota, India;NGSO;-;Satelit LAPAN-A3 membawa Automatic Identification System (AIS) yang berfungsi memantau lalu lintas laut global

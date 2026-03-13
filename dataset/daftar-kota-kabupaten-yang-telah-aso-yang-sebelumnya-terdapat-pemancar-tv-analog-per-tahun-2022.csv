@@ -1,0 +1,58 @@
+No;Wilayah Layanan;Kota/Kabupaten;Tanggal ASO;Kode Kabupaten Kota;Nama Kabupaten Kota
+1;Riau-4 (daerah perbatasan Indonesia-Malaysia);Kota Dumai;2022-04-30;14.72;KOTA DUMAI
+2;Riau-4 (daerah perbatasan Indonesia-Malaysia);Kabupaten Bengkalis;2022-04-30;14.03;KAB. BENGKALIS
+3;Riau-4 (daerah perbatasan Indonesia-Malaysia);Kabupaten Kepulauan Meranti;2022-04-30;14.10;KAB. KEPULAUAN MERANTI
+4;Nusa Tenggara Timur – 3 (daerah perbatasan Indonesia–Timor Leste);Kabupaten Timor Tengah Utara;2022-04-30;53.03;KAB. TIMOR TENGAH UTARA
+5;Nusa Tenggara Timur – 4 (daerah perbatasan Indonesia–Timor Leste);Kabupaten Belu;2022-04-30;53.04;KAB. BELU
+6;Nusa Tenggara Timur – 4 (daerah perbatasan Indonesia–Timor Leste);Kabupaten Malaka;2022-04-30;53.21;KAB. MALAKA
+7;Papua Barat – 1;Kabupaten Sorong;2022-04-30;92.01;KAB. SORONG
+8;Papua Barat – 1;Kota Sorong;2022-04-30;92.71;KOTA SORONG
+9;DKI Jakarta;Kabupaten Adm. Kep. Seribu;2022-11-02;31.01;KAB. ADM. KEP. SERIBU
+10;DKI Jakarta;Kota Adm. Jakarta Pusat;2022-11-02;31.71;KOTA ADM. JAKARTA PUSAT
+11;DKI Jakarta;Kota Adm. Jakarta Utara;2022-11-02;31.72;KOTA ADM. JAKARTA UTARA
+12;DKI Jakarta;Kota Adm. Jakarta Barat;2022-11-02;31.73;KOTA ADM. JAKARTA BARAT
+13;DKI Jakarta;Kota Adm. Jakarta Selatan;2022-11-02;31.74;KOTA ADM. JAKARTA SELATAN
+14;DKI Jakarta;Kota Adm. Jakarta Timur;2022-11-02;31.75;KOTA ADM. JAKARTA TIMUR
+15;DKI Jakarta;Kabupaten Bekasi;2022-11-02;32.16;KAB. BEKASI
+16;DKI Jakarta;Kabupaten Bogor;2022-11-02;32.01;KAB. BOGOR
+17;DKI Jakarta;Kota Bekasi;2022-11-02;32.75;KOTA BEKASI
+18;DKI Jakarta;Kota Bogor;2022-11-02;32.71;KOTA BOGOR
+19;DKI Jakarta;Kota Depok;2022-11-02;32.76;KOTA DEPOK
+20;DKI Jakarta;Kabupaten Tangerang;2022-11-02;36.03;KAB. TANGERANG
+21;DKI Jakarta;Kota Tangerang;2022-11-02;36.71;KOTA TANGERANG
+22;DKI Jakarta;Kota Tangerang Selatan;2022-11-02;36.74;KOTA TANGERANG SELATAN
+23;Jawa Barat – 1;Kabupaten Bandung;2022-12-02;32.04;KAB. BANDUNG
+24;Jawa Barat – 1;Kabupaten Bandung Barat;2022-12-02;32.17;KAB. BANDUNG BARAT
+25;Jawa Barat – 1;Kota Bandung;2022-12-02;32.73;KOTA BANDUNG
+26;Jawa Barat – 1;Kota Cimahi;2022-12-02;32.77;KOTA CIMAHI
+27;Jawa Tengah – 1;Kabupaten Boyolali;2022-12-02;33.09;KAB. BOYOLALI
+28;Jawa Tengah – 1;Kabupaten Sragen;2022-12-02;33.14;KAB. SRAGEN
+29;Jawa Tengah – 1;Kabupaten Grobogan;2022-12-02;33.15;KAB. GROBOGAN
+30;Jawa Tengah – 1;Kabupaten Kudus;2022-12-02;33.19;KAB. KUDUS
+31;Jawa Tengah – 1;Kabupaten Demak;2022-12-02;33.21;KAB. DEMAK
+32;Jawa Tengah – 1;Kabupaten Semarang;2022-12-02;33.22;KAB. SEMARANG
+33;Jawa Tengah – 1;Kota Salatiga;2022-12-02;33.73;KOTA SALATIGA
+34;Jawa Tengah – 1;Kota Semarang;2022-12-02;33.74;KOTA SEMARANG
+35;DI Yogyakarta;Kabupaten Kulon Progo;2022-12-02;34.01;KAB. KULON PROGO
+36;DI Yogyakarta;Kabupaten Bantul;2022-12-02;34.02;KAB. BANTUL
+37;DI Yogyakarta;Kabupaten Gunungkidul;2022-12-02;34.03;KAB. GUNUNGKIDUL
+38;DI Yogyakarta;Kabupaten Sleman;2022-12-02;34.04;KAB. SLEMAN
+39;DI Yogyakarta;Kota Yogyakarta;2022-12-02;34.71;KOTA YOGYAKARTA
+40;DI Yogyakarta;Kabupaten Klaten;2022-12-02;33.10;KAB. KLATEN
+41;DI Yogyakarta;Kabupaten Sukoharjo;2022-12-02;33.11;KAB. SUKOHARJO
+42;DI Yogyakarta;Kabupaten Karanganyar;2022-12-02;33.13;KAB. KARANGANYAR
+43;DI Yogyakarta;Kota Surakarta;2022-12-02;33.72;KOTA SURAKARTA
+44;Kepulauan Riau – 1 (daerah perbatasan Indonesia–Singapura–Malaysia);Kabupaten Bintan;2022-12-02;21.01;KAB. BINTAN
+45;Kepulauan Riau – 1 (daerah perbatasan Indonesia–Singapura–Malaysia);Kabupaten Karimun;2022-12-02;21.02;KAB. KARIMUN
+46;Kepulauan Riau – 1 (daerah perbatasan Indonesia–Singapura–Malaysia);Kota Batam;2022-12-02;21.71;KOTA BATAM
+47;Kepulauan Riau – 1 (daerah perbatasan Indonesia–Singapura–Malaysia);Kota Tanjung Pinang;2022-12-02;21.72;KOTA TANJUNG PINANG
+48;Jawa Timur – 1;Kabupaten Pasuruan;2022-12-20;35.14;KAB. PASURUAN
+49;Jawa Timur – 1;Kabupaten Sidoarjo;2022-12-20;35.15;KAB. SIDOARJO
+50;Jawa Timur – 1;Kabupaten Mojokerto;2022-12-20;35.16;KAB. MOJOKERTO
+51;Jawa Timur – 1;Kabupaten Jombang;2022-12-20;35.17;KAB. JOMBANG
+52;Jawa Timur – 1;Kabupaten Lamongan;2022-12-20;35.24;KAB. LAMONGAN
+53;Jawa Timur – 1;Kabupaten Gresik;2022-12-20;35.25;KAB. GRESIK
+54;Jawa Timur – 1;Kabupaten Bangkalan;2022-12-20;35.26;KAB. BANGKALAN
+55;Jawa Timur – 1;Kota Pasuruan;2022-12-20;35.75;KOTA PASURUAN
+56;Jawa Timur – 1;Kota Mojokerto;2022-12-20;35.76;KOTA MOJOKERTO
+57;Jawa Timur – 1;Kota Surabaya;2022-12-20;35.78;KOTA SURABAYA
