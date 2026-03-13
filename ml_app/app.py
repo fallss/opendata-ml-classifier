@@ -32,7 +32,7 @@ from trainer import (
     load_best_model, MODELS_DIR, COMPARISON_PATH
 )
 from classifier import (
-    predict_file, classify_all_files, save_results,
+    predict_file, predict_file_topk, classify_all_files, save_results,
     save_uploaded_to_training,
     CSV_PATH, DATASET_FOLDER, RESULTS_CSV
 )
@@ -111,6 +111,23 @@ st.markdown("""
     }
     .tag-group { display:inline-block; background:#2d3748; color:#68d391; padding:2px 10px; border-radius:12px; font-size:0.78rem; margin:2px; }
     .tag-org   { display:inline-block; background:#2d3748; color:#63b3ed; padding:2px 10px; border-radius:12px; font-size:0.78rem; margin:2px; }
+
+    .rank-card {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 12px;
+        padding: 10px 14px;
+        margin-bottom: 8px;
+        transition: border-color 0.2s;
+    }
+    .rank-card:hover { border-color: rgba(99,179,237,0.4); }
+    .rank-1 { border-left: 3px solid #68d391; }
+    .rank-2 { border-left: 3px solid #63b3ed; }
+    .rank-3 { border-left: 3px solid #9f7aea; }
+    .conf-bar-bg { background:#2d3748; border-radius:6px; height:6px; margin-top:4px; overflow:hidden; }
+    .conf-bar-fill-1 { height:6px; border-radius:6px; background: linear-gradient(90deg, #38a169, #68d391); }
+    .conf-bar-fill-2 { height:6px; border-radius:6px; background: linear-gradient(90deg, #2b6cb0, #63b3ed); }
+    .conf-bar-fill-3 { height:6px; border-radius:6px; background: linear-gradient(90deg, #553c9a, #9f7aea); }
 </style>
 """, unsafe_allow_html=True)
 
@@ -239,7 +256,7 @@ if page == "🏠 Overview":
 # ================================================================
 elif page == "⚙️ Training & Model Comparison":
     st.markdown("# ⚙️ Training & Model Comparison")
-    st.markdown("Bandingkan **5 model ML** dengan **GridSearchCV** (5-fold stratified CV) untuk dua target label: `group` dan `organization`.")
+    st.markdown("Bandingkan **10 model ML** dengan **GridSearchCV** (3-fold stratified CV) untuk dua target label: `group` dan `organization`.")
 
     col_btn, col_status = st.columns([1, 3])
 
@@ -421,62 +438,98 @@ elif page == "🏷️ Auto-Tag Dataset":
                         do_tag = st.button("🔍 Klasifikasi File Ini", type="primary", use_container_width=True)
 
                     if do_tag or selected_file:
-                        # Prediksi otomatis saat file dipilih
-                        pred = predict_file(selected_file)
+                        # Prediksi otomatis saat file dipilih (top-3)
+                        pred = predict_file_topk(selected_file, top_k=3)
 
                         # Hasil prediksi
                         st.markdown("---")
                         st.markdown(f"### 📄 `{selected_file}`")
 
+                        # ---- Top-3 Kandidat Prediksi ----
+                        def _render_topk(topk_list: list, accent_colors: list):
+                            """Render kartu ranking prediksi dengan confidence bar."""
+                            medal = ["🥇", "🥈", "🥉"]
+                            for item in topk_list:
+                                r    = item["rank"]
+                                conf = item["confidence"]
+                                col_cls = f"rank-{r}"
+                                fill_c  = accent_colors[r - 1]
+                                bar_html = f"""
+                                <div class='rank-card {col_cls}'>
+                                    <div style='display:flex; justify-content:space-between; align-items:center;'>
+                                        <span style='font-weight:600; font-size:0.95rem;'>
+                                            {medal[r-1]} {item['label']}
+                                        </span>
+                                        <span style='font-size:0.8rem; color:{fill_c}; font-weight:700;'>{conf}%</span>
+                                    </div>
+                                    <div class='conf-bar-bg'>
+                                        <div class='conf-bar-fill-{r}' style='width:{conf}%;'></div>
+                                    </div>
+                                </div>
+                                """
+                                st.markdown(bar_html, unsafe_allow_html=True)
+
                         r1, r2 = st.columns(2)
                         with r1:
-                            st.markdown("<div class='section-title'>🏷️ Prediksi Group</div>", unsafe_allow_html=True)
-                            st.markdown(f"<div style='font-size:1.5rem; font-weight:700; color:#68d391; padding:12px 0;'>{pred['pred_group']}</div>", unsafe_allow_html=True)
+                            st.markdown("<div class='section-title'>🏷️ Top-3 Prediksi Group</div>", unsafe_allow_html=True)
+                            _render_topk(pred["group_topk"], ["#68d391", "#63b3ed", "#9f7aea"])
 
-                            # Override group
-                            df_csv = load_csv()
+                            # Override group — default: kandidat #1
+                            df_csv     = load_csv()
                             all_groups = sorted(df_csv["group"].fillna("").replace("", None).dropna().unique().tolist())
+                            top_group_labels = [g["label"] for g in pred["group_topk"]]
                             override_group = st.selectbox(
-                                "Koreksi Group (opsional)",
-                                ["(gunakan prediksi)"] + all_groups,
+                                "✏️ Pilih/Koreksi Group",
+                                top_group_labels + ["(pilih lain...)"] + [g for g in all_groups if g not in top_group_labels],
                                 key="ovr_group",
+                                help="Default #1 (tertinggi). Pilih kandidat lain atau koreksi manual.",
                             )
+                            if override_group == "(pilih lain...)":
+                                override_group = top_group_labels[0]
 
                         with r2:
-                            st.markdown("<div class='section-title'>🏢 Prediksi Organization</div>", unsafe_allow_html=True)
-                            st.markdown(f"<div style='font-size:1.5rem; font-weight:700; color:#63b3ed; padding:12px 0;'>{pred['pred_organization']}</div>", unsafe_allow_html=True)
+                            st.markdown("<div class='section-title'>🏢 Top-3 Prediksi Organization</div>", unsafe_allow_html=True)
+                            _render_topk(pred["org_topk"], ["#68d391", "#63b3ed", "#9f7aea"])
 
                             all_orgs = sorted(df_csv["organization"].fillna("").replace("", None).dropna().unique().tolist())
+                            top_org_labels = [o["label"] for o in pred["org_topk"]]
                             override_org = st.selectbox(
-                                "Koreksi Organization (opsional)",
-                                ["(gunakan prediksi)"] + all_orgs,
+                                "✏️ Pilih/Koreksi Organization",
+                                top_org_labels + ["(pilih lain...)"] + [o for o in all_orgs if o not in top_org_labels],
                                 key="ovr_org",
+                                help="Default #1 (tertinggi). Pilih kandidat lain atau koreksi manual.",
                             )
+                            if override_org == "(pilih lain...)":
+                                override_org = top_org_labels[0]
 
-                        # Tentukan nilai final
-                        final_group = pred["pred_group"] if override_group == "(gunakan prediksi)" else override_group
-                        final_org   = pred["pred_organization"] if override_org == "(gunakan prediksi)" else override_org
+                        # Nilai final
+                        final_group = override_group
+                        final_org   = override_org
 
                         st.markdown("<br>", unsafe_allow_html=True)
                         col_save, col_dl, _ = st.columns([1, 1, 4])
 
                         with col_save:
                             if st.button("💾 Simpan Tag", type="primary", use_container_width=True):
+                                is_manual = (
+                                    final_group != pred["pred_group"] or
+                                    final_org   != pred["pred_organization"]
+                                )
                                 row_df = pd.DataFrame([{
                                     "filename":          selected_file,
                                     "pred_group":        final_group,
                                     "pred_organization": final_org,
                                     "classified_at":     pred["classified_at"],
-                                    "source":            "manual" if (override_group != "(gunakan prediksi)" or override_org != "(gunakan prediksi)") else "auto",
+                                    "source":            "manual" if is_manual else "auto",
                                 }])
                                 save_results(row_df)
-                                st.success(f"✅ Tag disimpan ke `classification_results.csv`: **{final_group}** | **{final_org}**")
+                                st.success(f"✅ Tag disimpan: **{final_group}** | **{final_org}**")
                                 st.rerun()
 
                         with col_dl:
                             single_csv = pd.DataFrame([{
-                                "filename": selected_file,
-                                "group": final_group,
+                                "filename":     selected_file,
+                                "group":        final_group,
                                 "organization": final_org,
                             }]).to_csv(index=False).encode()
                             st.download_button(
@@ -536,20 +589,42 @@ elif page == "📤 Upload & Classify":
                 # Simpan ke dataset/
                 with open(dest_path, "wb") as f:
                     f.write(uf.getbuffer())
-                # Prediksi
-                pred = predict_file(uf.name)
+                # Prediksi top-3
+                pred = predict_file_topk(uf.name, top_k=3)
                 results_upload.append(pred)
 
             df_upload = pd.DataFrame(results_upload)
 
-            # Tampilkan hasil prediksi
-            st.markdown("### Hasil Klasifikasi")
+            # Tampilkan hasil prediksi dengan top-3 kandidat
+            st.markdown("### 🏆 Hasil Klasifikasi (Top-3 Kandidat)")
             for _, row in df_upload.iterrows():
-                with st.container():
-                    c1, c2, c3 = st.columns([3, 1, 2])
-                    c1.markdown(f"📄 **{row['filename']}**")
-                    c2.markdown(f"<span class='tag-group'>{row['pred_group']}</span>", unsafe_allow_html=True)
-                    c3.markdown(f"<span class='tag-org'>{row['pred_organization']}</span>", unsafe_allow_html=True)
+                with st.expander(f"📄 **{row['filename']}**", expanded=True):
+                    uc1, uc2 = st.columns(2)
+                    with uc1:
+                        st.markdown("<div class='section-title'>🏷️ Group</div>", unsafe_allow_html=True)
+                        medal = ["🥇", "🥈", "🥉"]
+                        for item in (row.get("group_topk") or []):
+                            r, conf = item["rank"], item["confidence"]
+                            st.markdown(f"""
+                            <div class='rank-card rank-{r}'>
+                                <div style='display:flex;justify-content:space-between;'>
+                                    <span style='font-weight:600'>{medal[r-1]} {item['label']}</span>
+                                    <span style='font-size:0.8rem;color:#68d391;font-weight:700'>{conf}%</span>
+                                </div>
+                                <div class='conf-bar-bg'><div class='conf-bar-fill-{r}' style='width:{conf}%;'></div></div>
+                            </div>""", unsafe_allow_html=True)
+                    with uc2:
+                        st.markdown("<div class='section-title'>🏢 Organization</div>", unsafe_allow_html=True)
+                        for item in (row.get("org_topk") or []):
+                            r, conf = item["rank"], item["confidence"]
+                            st.markdown(f"""
+                            <div class='rank-card rank-{r}'>
+                                <div style='display:flex;justify-content:space-between;'>
+                                    <span style='font-weight:600'>{medal[r-1]} {item['label']}</span>
+                                    <span style='font-size:0.8rem;color:#63b3ed;font-weight:700'>{conf}%</span>
+                                </div>
+                                <div class='conf-bar-bg'><div class='conf-bar-fill-{r}' style='width:{conf}%;'></div></div>
+                            </div>""", unsafe_allow_html=True)
 
             st.markdown("<br>", unsafe_allow_html=True)
 

@@ -22,8 +22,13 @@ from datetime import datetime
 
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier
+from sklearn.linear_model import (
+    LogisticRegression, RidgeClassifier, SGDClassifier
+)
+from sklearn.ensemble import (
+    RandomForestClassifier, ExtraTreesClassifier,
+    GradientBoostingClassifier, AdaBoostClassifier,
+)
 from sklearn.svm import LinearSVC
 from sklearn.naive_bayes import ComplementNB
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
@@ -95,9 +100,10 @@ def _make_nb_pipeline(model, label_col: str = "organization") -> Pipeline:
 
 
 # ================================================================
-# 5 Model + Grid Parameter
+# 10 Model + Grid Parameter
 # ================================================================
 MODEL_CONFIGS = {
+    # ── Existing 5 ──────────────────────────────────────────────
     "Logistic Regression": {
         "pipeline": "default",
         "model": LogisticRegression(
@@ -146,6 +152,61 @@ MODEL_CONFIGS = {
         "params": {
             "clf__alpha": [0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1.0],
             "clf__norm":  [True, False],
+        },
+    },
+    # ── 5 Tambahan Baru ─────────────────────────────────────────
+    "Ridge Classifier": {
+        # decision_function only → confidence via softmax di classifier.py
+        "pipeline": "default",
+        "model": RidgeClassifier(class_weight="balanced"),
+        "params": {
+            "clf__alpha":   [0.01, 0.1, 0.5, 1.0, 5.0, 10.0, 50.0, 100.0],
+            "clf__solver":  ["auto", "lsqr", "sag"],
+        },
+    },
+    "SGD Classifier": {
+        # loss='log_loss' → mendukung predict_proba
+        "pipeline": "default",
+        "model": SGDClassifier(
+            loss="log_loss", random_state=42,
+            class_weight="balanced", max_iter=1000, tol=1e-3,
+        ),
+        "params": {
+            "clf__alpha":   [1e-5, 1e-4, 1e-3, 1e-2, 0.1],
+            "clf__penalty": ["l2", "l1", "elasticnet"],
+        },
+    },
+    "Gradient Boosting": {
+        # predict_proba tersedia
+        "pipeline": "default",
+        "model": GradientBoostingClassifier(random_state=42),
+        "params": {
+            "clf__n_estimators":  [100, 200],
+            "clf__learning_rate": [0.05, 0.1, 0.2],
+            "clf__max_depth":     [3, 5],
+        },
+    },
+    "Passive Aggressive (SGD)": {
+        # SGDClassifier(loss='hinge') = pengganti resmi PassiveAggressiveClassifier di sklearn 1.8+
+        # decision_function only → confidence via softmax di classifier.py
+        "pipeline": "default",
+        "model": SGDClassifier(
+            loss="hinge", penalty=None,
+            learning_rate="pa1", eta0=1.0,
+            random_state=42, class_weight="balanced",
+            max_iter=1000, tol=1e-3,
+        ),
+        "params": {
+            "clf__eta0": [0.001, 0.01, 0.1, 0.5, 1.0, 5.0],
+        },
+    },
+    "AdaBoost": {
+        # predict_proba tersedia; algorithm dihapus di sklearn 1.8+
+        "pipeline": "default",
+        "model": AdaBoostClassifier(random_state=42),
+        "params": {
+            "clf__n_estimators":  [50, 100, 200],
+            "clf__learning_rate": [0.5, 1.0, 1.5],
         },
     },
 }

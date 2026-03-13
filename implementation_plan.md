@@ -92,3 +92,5 @@ Verifikasi:
 2. Klik "Mulai Training" → 5 model terlatih, tabel perbandingan muncul
 3. Tab Auto-Tag → file di `dataset/` diklasifikasi
 4. Tab Upload → upload file baru → file tersimpan di `dataset/`, baris baru di CSV
+
+![alt text](image.png)
