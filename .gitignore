@@ -32,4 +32,7 @@ Thumbs.db
 .streamlit/
 
 # Dataset besar (opsional — uncomment jika dataset terlalu besar)
-# dataset/
+dataset/
+.md
+crawler/
+auto_tagger/
