@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Dataset & output (besar, tidak perlu di image)
+dataset/
+training_data_enriched.csv
+classification_results.csv
+*.csv
+
+# Git
+.git/
+.gitignore
+
+# Docs & image
+*.md
+*.png
+*.jpg
+prompt.md
+laporan_rekomendasi_organisasi.md
+image.png
+
+# Crawler (tidak dipakai service)
+crawler/
+
+# ml_app source tapi bukan models (models di-mount via volume)
+# Hapus baris ini jika ingin model di-copy ke image
+# ml_app/models/

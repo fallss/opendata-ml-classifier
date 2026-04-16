@@ -1,0 +1,17 @@
+# Requirements — FastAPI ML Auto-Tagging Service
+
+# Web Framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+
+# Data & ML (sesuaikan versi dengan environment training)
+joblib>=1.3.0
+scikit-learn>=1.4.0
+numpy>=1.26.0
+pandas==3.0.2
+
+# Validasi & serialisasi
+pydantic>=2.7.0
+
+# Konfigurasi environment
+python-dotenv>=1.0.0

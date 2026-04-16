@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  ml-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ml-auto-tagging:latest
+    container_name: ml-auto-tagging-service
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+    volumes:
+      # Mount models sebagai read-only volume
+      # Jika model diretrain, cukup restart container tanpa rebuild image
+      - ./ml_app/models:/app/ml_app/models:ro
+    environment:
+      - ML_SERVICE_HOST=0.0.0.0
+      - ML_SERVICE_PORT=8002
+      # Batasi CORS jika perlu, default "*" untuk development
+      # - ML_CORS_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8002/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
