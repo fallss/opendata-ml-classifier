@@ -1,0 +1,202 @@
+{
+  "group": {
+    "Logistic Regression": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.9166,
+      "best_params": {
+        "C": 50.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      }
+    },
+    "Linear SVC": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.9306,
+      "best_params": {
+        "C": 0.5
+      }
+    },
+    "Random Forest": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.7086,
+      "best_params": {
+        "max_depth": null,
+        "min_samples_split": 3,
+        "n_estimators": 300
+      }
+    },
+    "Extra Trees": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.8123,
+      "best_params": {
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "n_estimators": 100
+      }
+    },
+    "Complement NB": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.9323,
+      "best_params": {
+        "alpha": 0.1,
+        "norm": true
+      }
+    },
+    "Ridge Classifier": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.94,
+      "best_params": {
+        "alpha": 0.1,
+        "solver": "auto"
+      }
+    },
+    "SGD Classifier": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.9164,
+      "best_params": {
+        "alpha": 1e-05,
+        "penalty": "l2"
+      }
+    },
+    "Gradient Boosting": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.7977,
+      "best_params": {
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "n_estimators": 100
+      }
+    },
+    "Passive Aggressive (SGD)": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.9302,
+      "best_params": {
+        "eta0": 0.1
+      }
+    },
+    "AdaBoost": {
+      "accuracy": 0.4327,
+      "f1_weighted": 0.3435,
+      "cv_f1": 0.4973,
+      "best_params": {
+        "learning_rate": 1.0,
+        "n_estimators": 50
+      }
+    },
+    "_best_model": "Ridge Classifier",
+    "_label_col": "group",
+    "_trained_at": "2026-04-02T20:22:59.845948",
+    "_n_samples": 104,
+    "_n_classes": 10,
+    "_scoring": "f1_weighted (2-fold CV)"
+  },
+  "organization": {
+    "Logistic Regression": {
+      "accuracy": 0.9059,
+      "f1_weighted": 0.9084,
+      "cv_f1": 0.7443,
+      "best_params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "solver": "lbfgs"
+      }
+    },
+    "Linear SVC": {
+      "accuracy": 0.9471,
+      "f1_weighted": 0.948,
+      "cv_f1": 0.7553,
+      "best_params": {
+        "C": 0.1
+      }
+    },
+    "Random Forest": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.656,
+      "best_params": {
+        "max_depth": 10,
+        "min_samples_split": 3,
+        "n_estimators": 100
+      }
+    },
+    "Extra Trees": {
+      "accuracy": 0.8882,
+      "f1_weighted": 0.8956,
+      "cv_f1": 0.6871,
+      "best_params": {
+        "max_depth": 10,
+        "min_samples_leaf": 3,
+        "n_estimators": 200
+      }
+    },
+    "Complement NB": {
+      "accuracy": 0.9412,
+      "f1_weighted": 0.9396,
+      "cv_f1": 0.7429,
+      "best_params": {
+        "alpha": 0.5,
+        "norm": false
+      }
+    },
+    "Ridge Classifier": {
+      "accuracy": 0.8059,
+      "f1_weighted": 0.8216,
+      "cv_f1": 0.7474,
+      "best_params": {
+        "alpha": 50.0,
+        "solver": "auto"
+      }
+    },
+    "SGD Classifier": {
+      "accuracy": 0.9176,
+      "f1_weighted": 0.9178,
+      "cv_f1": 0.7607,
+      "best_params": {
+        "alpha": 0.01,
+        "penalty": "l2"
+      }
+    },
+    "Gradient Boosting": {
+      "accuracy": 1.0,
+      "f1_weighted": 1.0,
+      "cv_f1": 0.6823,
+      "best_params": {
+        "learning_rate": 0.2,
+        "max_depth": 3,
+        "n_estimators": 100
+      }
+    },
+    "Passive Aggressive (SGD)": {
+      "accuracy": 0.9941,
+      "f1_weighted": 0.9944,
+      "cv_f1": 0.7564,
+      "best_params": {
+        "eta0": 0.01
+      }
+    },
+    "AdaBoost": {
+      "accuracy": 0.7824,
+      "f1_weighted": 0.7782,
+      "cv_f1": 0.5772,
+      "best_params": {
+        "learning_rate": 1.0,
+        "n_estimators": 100
+      }
+    },
+    "_best_model": "SGD Classifier",
+    "_label_col": "organization",
+    "_trained_at": "2026-04-02T20:23:28.530930",
+    "_n_samples": 170,
+    "_n_classes": 8,
+    "_scoring": "f1_weighted (2-fold CV)"
+  }
+}

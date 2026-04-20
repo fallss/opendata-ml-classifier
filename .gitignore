@@ -14,9 +14,6 @@ env/
 .env/
 .venv/
 
-# ML Models (besar, tidak perlu di-commit)
-ml_app/models/
-
 # Jupyter
 .ipynb_checkpoints/
 
