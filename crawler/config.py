@@ -1,11 +1,12 @@
 import os
+from dotenv import load_dotenv
 
 # ============================================================
 # Konfigurasi Scraper
 # ============================================================
 
 # URL halaman listing dataset Komdigi
-BASE_URL = "https://dev-opendata.komdigi.go.id"
+BASE_URL = os.getenv("BASE_URL", "https://dev-opendata.komdigi.go.id")
 DATASET_LIST_URL = f"{BASE_URL}/opendata/dataset"
 
 # Header HTTP agar tidak terdeteksi sebagai bot
@@ -45,4 +46,4 @@ OUTPUT_CSV = os.path.join(BASE_DIR, "training_data_enriched.csv")
 # ============================================================
 
 # Ambang batas kemiripan nama untuk fuzzy matching (0.0 - 1.0)
-FUZZY_MATCH_THRESHOLD = 0.6
+FUZZY_MATCH_THRESHOLD = float(os.getenv("FUZZY_MATCH_THRESHOLD", 0.6))
